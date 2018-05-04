@@ -1,0 +1,71 @@
+<ion-content>
+	<ion-slides class="banner" pager paginationType="bullets">
+		<ion-slide>
+			<img src="./assets/imgs/banner01.jpg" alt="">
+		</ion-slide>
+		<ion-slide>
+			<img src="./assets/imgs/banner02.jpg" alt="">
+		</ion-slide>
+	</ion-slides>
+	<section class="menu-container">
+		<div class="menu-item color-primary" (click) = "pushRepaymentPage()">
+			<i class="iconfont">&#xe930;</i>
+			<span>还款</span>
+		</div>
+		<div class="menu-item color-secondary" (tap) = "pushShareProfitPage()" hidden="hidden">
+			<i class="iconfont">&#xe6d7;</i>
+			<span>分润</span>
+		</div>
+		<div class="menu-item color-warning">
+			<i class="iconfont">&#xe627;</i>
+			<span>贷款</span>
+		</div>
+		<div class="menu-item color-danger">
+			<i class="iconfont">&#xe628;</i>
+			<span>办卡</span>
+		</div>
+		<div class="menu-item color-primary">
+			<i class="iconfont">&#xe615;</i>
+			<span>收款记录</span>
+		</div>
+		<div class="menu-item color-success">
+			<i class="iconfont">&#xe8e6;</i>
+			<span>客服</span>
+		</div>
+	</section>
+	<section class="block-list">
+		<ion-card class="block" (tap) = "pushRepaymentPage()">
+			<ion-card-header class="clear">
+				<i class="iconfont color-primary fn-left">&#xe930;</i>
+				<span class="title fn-left">智能还款</span>
+				<span class="tag fn-left">智能还款，轻松度过账单日</span>
+				<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+			</ion-card-header>
+			<ion-card-content>
+				<img src="./assets/imgs/ad01.jpg" alt="">
+			</ion-card-content>
+		</ion-card>
+		<ion-card class="block" (tap) = "pushPaymentPage()">
+			<ion-card-header class="clear">
+				<i class="iconfont color-primary fn-left">&#xe706;</i>
+				<span class="title fn-left">快速收款</span>
+				<span class="tag fn-left"></span>
+				<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+			</ion-card-header>
+			<ion-card-content>
+				<img src="./assets/imgs/ad02.jpg" alt="">
+			</ion-card-content>
+		</ion-card>
+		<ion-card class="block">
+			<ion-card-header class="clear">
+				<i class="iconfont color-primary fn-left">&#xe609;</i>
+				<span class="title fn-left">招商啦!</span>
+				<span class="tag fn-left">全国招合伙人</span>
+				<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+			</ion-card-header>
+			<ion-card-content>
+				<img src="./assets/imgs/ad03.jpg" alt="">
+			</ion-card-content>
+		</ion-card>
+	</section>
+</ion-content>

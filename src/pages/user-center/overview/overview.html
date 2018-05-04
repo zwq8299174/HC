@@ -1,0 +1,118 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>账户预览</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card class="block" (tap)="goDetail()">
+		<ion-card-header>
+			<span class="tag fn-left">总收益</span>
+			<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+			<span class="amount fn-right">¥{{total?.total_income}}</span>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="line">
+				<div class="earning">
+					<p class="title">充值(元)</p>
+					<p>{{incomeDetail?.buy_member_total}}</p>
+				</div>
+				<div class="earning">
+					<p class="title">分润(元)</p>
+					<p>{{incomeDetail?.repayment_total}}</p>
+				</div>
+				<div class="earning">
+					<p class="title">分享(元)</p>
+					<p>0</p>
+				</div>
+			</div>
+			<div class="line">
+				<div class="earning">
+					<p class="title">办卡(元)</p>
+					<p>0</p>
+				</div>
+				<div class="earning">
+					<p class="title">贷款(元)</p>
+					<p>0</p>
+				</div>
+				<div class="earning">
+					<p class="title"></p>
+					<p></p>
+				</div>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<ion-card class="block" (tap)="goDetail()">
+		<ion-card-header>
+			<span class="tag fn-left">今日收益</span>
+			<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+			<span class="amount fn-right">¥{{total?.day_income}}</span>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="line">
+				<div class="earning">
+					<p class="title">充值(元)</p>
+					<p>{{incomeDetail?.buy_member_day}}</p>
+				</div>
+				<div class="earning">
+					<p class="title">分润(元)</p>
+					<p>{{incomeDetail?.repayment_day}}</p>
+				</div>
+				<div class="earning">
+					<p class="title">分享(元)</p>
+					<p>0</p>
+				</div>
+			</div>
+			<div class="line">
+				<div class="earning">
+					<p class="title">办卡(元)</p>
+					<p>0</p>
+				</div>
+				<div class="earning">
+					<p class="title">贷款(元)</p>
+					<p>0</p>
+				</div>
+				<div class="earning">
+					<p class="title"></p>
+					<p></p>
+				</div>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<ion-card class="block" (tap)="goDetail()">
+			<ion-card-header>
+				<span class="tag fn-left">本月收益</span>
+				<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+				<span class="amount fn-right">¥{{total?.month_income}}</span>
+			</ion-card-header>
+			<ion-card-content>
+				<div class="line">
+					<div class="earning">
+						<p class="title">充值(元)</p>
+						<p>{{incomeDetail?.buy_member_month}}</p>
+					</div>
+					<div class="earning">
+						<p class="title">分润(元)</p>
+						<p>{{incomeDetail?.repayment_month}}</p>
+					</div>
+					<div class="earning">
+						<p class="title">分享(元)</p>
+						<p>0</p>
+					</div>
+				</div>
+				<div class="line">
+					<div class="earning">
+						<p class="title">办卡(元)</p>
+						<p>0</p>
+					</div>
+					<div class="earning">
+						<p class="title">贷款(元)</p>
+						<p>0</p>
+					</div>
+					<div class="earning">
+						<p class="title"></p>
+						<p></p>
+					</div>
+				</div>
+			</ion-card-content>
+		</ion-card>
+</ion-content>

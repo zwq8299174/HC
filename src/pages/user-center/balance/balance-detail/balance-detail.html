@@ -1,0 +1,21 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			<ion-select interface="popover" [(ngModel)]="titleType" (ngModelChange)="titleChange()" *ngIf="pageType=='0'"  placeholder="收支明细">
+			    <ion-option *ngFor="let item of titleList" value="{{item.attr_type}}">{{item.name}}</ion-option>
+			</ion-select>
+			<i *ngIf="pageType!='0'">{{pageType | balanceDetailName}}</i>
+		</ion-title>
+		<ion-buttons end>
+			<i class="iconfont">&#xe618;</i>
+			<ion-datetime cancelText="取消" doneText="确认" displayFormat="YYYY-MM" [(ngModel)]="myDate" (ngModelChange)="dateChange()" [max]="maxDate"></ion-datetime>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="detail-item" *ngFor="let item of paymentList">
+		<h2><span>{{item.attr_code | balanceDetailCode:item.attr_sub_code}}</span><span class="date">{{item.create_date}}</span></h2>
+		<p><span>余额:{{item.after_acc | RMB}}</span><span class="amount"><i>{{item.amount |RMB | balanceDetailAmount:item.attr_code}}</i></span></p>
+	</ion-item>
+	<button class="load-more" ion-button [hidden]="paymentList.length==0 || currentPage > allpagenum" (tap)="loadMore()" full>加载更多...</button>
+</ion-content>

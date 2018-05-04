@@ -1,0 +1,15 @@
+page-balance {
+	.scroll-content{overflow: hidden;}
+	.balance-header{height:12rem;text-align: center;background-color:color($colors,primary);padding:1rem 0 2rem 0;color:#fff;
+		p{line-height:4rem;margin:0;padding:0;}
+		h2{line-height: 6rem;margin:0;padding:0;font-size:3.6rem;}
+	}
+	.footer{
+		.toolbar{line-height:6rem;height:6rem;padding:0;
+			.toolbar-content{display: flex;
+				.button{flex-basis: 50%;height:6rem;line-height: 6rem;border-radius:0;}
+			}
+		}
+		.toolbar-background{background-color: #fff;}
+	}
+}

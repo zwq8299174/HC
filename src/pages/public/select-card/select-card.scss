@@ -1,0 +1,12 @@
+page-select-card {
+	.item{margin-top: 1rem;border-bottom: 1px solid $border-color;border-top: 1px solid $border-color;
+		.iconfont{font-size:40px;line-height:40px;}
+		p{color: #999;}
+		&.item-block{
+			.label{margin:16px 8px 16px 0}
+			.icon{color:color($colors,primary)}
+			.item-inner{border:none;}
+		}
+	}
+	.submit{margin: 4rem 0;}
+}

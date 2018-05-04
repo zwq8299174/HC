@@ -1,0 +1,4 @@
+<section class="wrapper" [ngClass]="{'load': load}">
+	<img *ngIf="qrCodeData"  [src]="qrCodeData" alt="">
+	<ion-icon name="close-circle" class="close" (tap)="close()"></ion-icon>
+</section>

@@ -1,0 +1,12 @@
+page-qrcode {
+	.wrapper{position:fixed;left:0;top:0;bottom:0;right: 0;background-color:rgba(0,0,0,0);display: flex;justify-content: center;align-items: center;@extend .transition-02;flex-wrap: wrap;flex-direction: column;
+		img{width:80%;@extend .transition-02;opacity:0;}
+		.close{font-size:4rem;margin-top:4rem;opacity:0;}
+		&.load{background-color:rgba(0,0,0,0.3);
+			img{
+				opacity:1;
+			}
+			.close{opacity: 1;color:#fff;}
+		}
+	}
+}

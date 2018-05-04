@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>设置</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-buttons class="buttons-group">
+		<button class="full-button" ion-button outline full (tap)="goUserInfo()">
+			<span class="tag">
+				<i class="fn-left">账号信息</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+		<button class="full-button" ion-button outline full (tap)="goSecurity()">
+			<span class="tag">
+				<i class="fn-left">安全中心</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+	</ion-buttons>
+	<ion-buttons class="buttons-group">
+		<button class="full-button" ion-button outline full (tap)="goFeedBack()">
+			<span class="tag">
+				<i class="fn-left">问题反馈</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+		<button class="full-button" ion-button outline full (tap)="goUserAgreement()">
+			<span class="tag">
+				<i class="fn-left">用户协议</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+		<button class="full-button" ion-button outline full (tap)="goAboutUs()">
+			<span class="tag">
+				<i class="fn-left">关于我们</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+		<button class="full-button" ion-button outline full>
+			<span class="tag">
+				<i class="fn-left">版本号</i>
+			</span>
+			<i class="fn-right">V1.0.1</i>
+	    </button>
+	</ion-buttons>
+	<button class="logout submit" ion-button block (tap)="goLogout()">退出登录</button>
+</ion-content>

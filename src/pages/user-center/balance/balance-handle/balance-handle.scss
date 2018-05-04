@@ -1,0 +1,9 @@
+page-balance-handle {
+	.amount-wrapper{background-color: #fff;border-bottom: 1px solid $border-color;
+		.toolbar-title{color:color($colors, dark);font-size:1.6rem;font-weight:normal;line-height:6rem;}
+		.input{font-size:4.2rem;
+			input{line-height:5.5rem;text-align: center;padding: 0 3rem}
+		}
+	}
+	.submit{margin-top:8rem;}
+}

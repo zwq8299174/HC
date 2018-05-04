@@ -1,0 +1,13 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>分享</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (tap)="share()">
+				<ion-icon name="ios-share-outline"></ion-icon>
+		    </button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<img *ngIf="imgUrl" [src]="imgUrl" alt="" (press)="hold()">
+</ion-content>

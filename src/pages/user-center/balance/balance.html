@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>余额</ion-title>
+		<ion-buttons end>
+			<button ion-button (tap)="goDetaile('0')">
+				明细
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<header class="balance-header">
+		<p>账户余额(元)</p>
+		<h2>{{balance?.actUse}}</h2>
+	</header>
+	<ion-list class="buttons-list">
+		<ion-item (tap)="goDetaile('1')">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe6d7;</i>
+				<i class="fn-left">分润明细</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goDetaile('2')">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe60a;</i>
+				<i class="fn-left">充值明细</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goDetaile('3')">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe624;</i>
+				<i class="fn-left">提现明细</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer no-border>
+	<ion-toolbar>
+    	<button class="roll-out" color="fff" ion-button block (tap)="handle(1)">转出</button>
+		<button ion-button block (tap)="handle(2)">充值</button>
+	</ion-toolbar>
+</ion-footer>

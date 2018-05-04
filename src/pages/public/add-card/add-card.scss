@@ -1,0 +1,28 @@
+page-add-card {
+	.tab-wrapper{display: flex;background-color: #fff;
+		.tab-item{flex-basis: 50%;height: 4.4rem;padding:0 3rem;text-align: center;;
+			span{line-height:4.2rem;border-bottom:0.2rem solid #fff;font-size:1.5rem;display: block;}
+			&.active{
+				span{color:color($colors,primary);border-color:color($colors,primary);}
+			}
+		}
+	}
+	.hint{padding:0 2.5rem;
+		.toolbar-title{line-height:3.6rem;}
+	}
+	.add-form{
+		.item{
+			.expdate{text-align:right;flex-basis: auto;}
+			.province{order:1;text-align: center;}
+			.city{order:3;text-align: center;}
+			&.card-type{
+				.label{padding:0;margin:0;line-height:4.6rem;}
+				.info{
+					display: flex;justify-content: flex-end;
+					.iconfont{line-height:4.6rem;font-size:3rem;margin-right: 1rem;}
+				}
+			}
+		}
+		.submit{margin-bottom: 2rem;}
+	}
+}

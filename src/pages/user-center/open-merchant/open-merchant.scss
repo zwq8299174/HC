@@ -1,0 +1,18 @@
+page-open-merchant {
+	.hint{padding:0 2.5rem;
+		.toolbar-title{line-height:3.6rem;}
+	}
+	.merchant-form{
+		.item{
+			&.card-type{
+				.label{padding:0;margin:0;line-height:4.6rem;}
+				.info{
+					display: flex;justify-content: flex-end;
+					.iconfont{line-height:4.6rem;font-size:3rem;margin-right: 1rem;}
+				}
+			}
+			.select{flex-basis: 50%;max-width:none;}
+		}
+		.submit{margin-bottom: 2rem;}
+	}
+}

@@ -1,0 +1,8 @@
+page-activate-member {
+	.explain{font-size: 1.2rem;line-height:2.2rem;background-color: #fff;padding:1.6rem 2.5rem;border-bottom: 1px solid $border-color;}
+	.active-way{text-align: center;display: flex;justify-content:center;padding: 1.5rem 0 0.5rem 0;
+		.key{border-top-right-radius: 0;border-bottom-right-radius: 0;}
+		.online-pay{border-top-left-radius: 0;border-bottom-left-radius: 0;}
+	}
+	.custom-form{border: none;}
+}

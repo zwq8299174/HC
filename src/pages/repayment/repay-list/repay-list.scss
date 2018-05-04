@@ -1,0 +1,27 @@
+page-repay-list {
+	.repay-item{
+		.card-header{padding:0 1.8rem;line-height:4.5rem;border-bottom: 1px solid $border-color;display: flex;position: relative;
+			.iconfont{font-size:3rem;}
+			.bank-name{font-size:1.6rem;margin-left:1.2rem;}
+			.tail-num{color:#999;font-size:1.4rem;margin-left:1.2rem;}
+			.icon{line-height: 4.5rem;align-self:stretch;}
+			&:after{@extend ion-icon;content: '\f3d1';display: inline-block;position:absolute;right:1.8rem;line-height:4.5rem;}
+		}
+		.card-content{display: flex;padding:0;justify-content: space-between;
+			.info-item{display: flex;flex-wrap: wrap;text-align:center;padding:1.6rem 0 2.1rem 0;
+				&:nth-child(1){
+					flex-basis: 20%
+				}
+				&:nth-child(2){
+					flex-basis: 50%
+				}
+				&:nth-child(3){
+					flex-basis: 30%
+				}
+				span{flex-basis:100%;font-size:2rem;line-height: 2.8rem;
+					&.tag{font-size:1.2rem;color:#999;line-height: 2.4rem;}
+				}
+			}
+		}
+	}
+}

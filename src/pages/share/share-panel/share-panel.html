@@ -1,0 +1,26 @@
+<div class="wrapper" [ngClass]="{'load': load}" (tap)="dismiss()"></div>
+<section class="share-panel" [ngClass]="{'load': panelLoad}">
+	<div class="share-way-list">
+		<ul>
+			<li (tap)="wechatFriend()">
+				<div class="wechat">
+					<i class="iconfont">&#xe605;</i>
+				</div>
+				<p>微信</p>
+			</li>
+			<li (tap)="wechatTimeLine()">
+				<div>
+					<i class="iconfont color-warning">&#xe631;</i>
+				</div>
+				<p>朋友圈</p>
+			</li>
+			<li (tap)="copy()">
+				<div>
+					<i class="iconfont">&#xe66d;</i>
+				</div>
+				<p>复制链接</p>
+			</li>
+		</ul>
+	</div>
+	<button ion-button block color="fff" (tap)="dismiss()">取消</button>
+</section>

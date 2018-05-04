@@ -1,0 +1,50 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>智能还款</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="select-card" (tap)="select()" *ngIf="card">
+		<ion-avatar item-start="item-start">
+			<i class="iconfont" [ngClass]="'icon-'+card?.bank_ename"></i>
+		</ion-avatar>
+		<h2>{{card?.bank_name}}</h2>
+		<p>{{card?.card_no | tailNum}}&nbsp;<i>{{card?.card_type | cardType}}</i>
+		</p>
+		<ion-icon name="arrow-forward" item-end></ion-icon>
+	</ion-item>
+	<ion-item class="select-card" *ngIf="!card" (tap)="select()">
+		<h1>请选择信用卡</h1>
+		<ion-icon name="arrow-forward" item-end></ion-icon>
+	</ion-item>
+	<form #repayForm="ngForm"  novalidate (ngSubmit)="creat()" class="repayment-form custom-form">
+		<ion-item [ngClass]="{'error': (repayForm.controls.repayAmount?.touched||repayForm.submitted)&&repayForm.controls.repayAmount?.errors?.required}">
+			<ion-label fixed>还款金额</ion-label>
+			<ion-input name="repayAmount" required minlength="4" type="number" value="" [(ngModel)]="rePayModel.amount" (ngModelChange)="getDiscountList()" placeholder="请输入还款金额" ></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': repayForm.submitted&&(repayForm.controls.startDate?.errors?.required||repayForm.controls.endDate?.errors?.required)}">
+			<ion-label fixed>还款日期</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-datetime cancelText="取消" doneText="确认" class="start-date" required name="startDate" [min]="startMinDate" [max]="startMaxDate" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="rePayModel.startDate" (ngModelChange)="getDiscountList()" placeholder="开始时间" ></ion-datetime>
+			<ion-label class="zhi">至</ion-label>
+			<ion-datetime cancelText="取消" doneText="确认" class="end-date" required name="endDate" [min]="endMinDate" [max]="endMaxDate" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="rePayModel.endDate" (ngModelChange)="getDiscountList()" placeholder="结束时间" [disabled]="!rePayModel.startDate"></ion-datetime>
+		</ion-item>
+		<ion-item>
+			<ion-label>保证金比例</ion-label>
+			<ion-select interface="popover" placeholder="请选择" [(ngModel)]="discount" name="discount" (ngModelChange)="_getMinAmount()" okText="确定" cancelText="取消" [disabled]="repayForm.controls.repayAmount?.invalid||repayForm.controls.startDate?.invalid||repayForm.controls.endDate?.invalid">
+				<ion-option *ngFor="let vo of discountList" value="{{vo.rate}}">{{vo.desc}}</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-item>
+			<ion-label fixed>单笔最小还款金额</ion-label>
+			<ion-input name="minAmount" readonly="true" type="number" value="" placeholder="单笔最小还款金额" [(ngModel)]="rePayModel.minAmount"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': ((repayForm.controls.maxAmount?.touched||repayForm.submitted)&&((repayForm.controls.maxAmount?.errors?.required)||(rePayModel.maxAmount-rePayModel.minAmount)<0))}">
+			<ion-label fixed>单笔最大还款金额</ion-label>
+			<ion-input name="maxAmount" type="number"  required value="" placeholder="请输入单笔最大还款金额" [(ngModel)]="rePayModel.maxAmount" (ngModelChange)="getRemarkBymaxAmount()"></ion-input>
+		</ion-item>
+		<ion-title class="hint"  [hidden]="remarkHidden">{{remark}}</ion-title>
+		<button class="submit" type="submit" ion-button block>创建还款计划</button>
+	</form>
+</ion-content>

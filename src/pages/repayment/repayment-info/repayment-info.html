@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+    <ion-buttons end>
+        <ion-datetime displayFormat="YYYY-MM" [(ngModel)]="myDate" (ngModelChange)="dateChange($event)" placeholder="日期"></ion-datetime>
+		</ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list class="detail-list">
+    <ion-list-header>
+      <span>日期</span>
+      <span>金额</span>
+      <span>操作</span>
+      <span>状态</span>
+    </ion-list-header>
+    <ion-item *ngFor="let item of repaymentInfoList;let i = index" [hidden]="i>showInfonum">
+      <span>{{item.plat_date}}</span>
+      <span>{{item.plat_amount}}</span>
+      <span>{{item.plan_type | repayInfoType}}</span>
+      <span [ngClass]="item.status | repayInfoStatus">{{item.status | repayInfoStatus:'status'}}</span>
+    </ion-item>
+    <p class="icon-wai" (tap)="showMore()">
+      <ion-icon name="arrow-down" *ngIf="showD"></ion-icon>
+      <ion-icon name="arrow-up" *ngIf="!showD"></ion-icon>
+    </p>
+  </ion-list>
+</ion-content>

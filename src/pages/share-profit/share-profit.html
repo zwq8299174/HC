@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>分润记录</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<header class="share-profit-header">
+		<div class="share-number">
+			<i class="iconfont">&#xe64e;</i>
+			<p>共分享{{profitInfo?.shareCount}}位用户</p>
+		</div>
+		<div class="share-amount">
+			<i class="iconfont">&#xe686;</i>
+			<p>全部用户交易{{profitInfo?.tradeCount}}笔</p>
+			<p>累计返佣
+				<i class="color-warning">¥{{profitInfo?.commissionTotal}}</i>
+			</p>
+		</div>
+	</header>
+	<div class="tab-wrapper">
+		<span [ngClass]="{'active': classType=='1'}" (tap)="typeClick('1')">全部用户</span>
+		<span [ngClass]="{'active': classType=='2'}" (tap)="typeClick('2')">会员用户</span>
+		<span [ngClass]="{'active': classType=='3'}" (tap)="typeClick('3')">合伙人</span>
+	</div>
+	<ion-list class="detail-list header">
+		<ion-list-header>
+			<span>日期</span>
+			<span>刷卡额</span>
+			<span>利润(元)</span>
+			<span>交易人</span>
+			<span>返佣类型</span>
+		</ion-list-header>
+	</ion-list>
+	<ion-list class="detail-list container"   #detailList>
+		<ion-item *ngFor="let item of profitList">
+			<span>{{item.fr_date}}</span>
+			<span>¥{{item.amount}}</span>
+			<span>¥{{item.after_tax_fr}}</span>
+			<span>{{item.trade_user_name}}</span>
+			<span>{{item.profit_type | shareProfitType}}</span>
+		</ion-item>
+		<button class="submit"  ion-button block [hidden]="profitList.length==0" (tap)="getProfitInfoQuery()">加载更多...</button>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,33 @@
+page-repayment-info {
+    .data-list{
+        .label{
+            display: flex;
+            span{
+                flex: 1;
+                text-align: center;
+            }
+        }
+        .list-header{
+            padding-left: 0px; 
+            background-color: color($colors,light);
+            font-size: 1.6rem;
+            line-height: 4.2rem;
+            font-weight: 600;
+            span{
+                color: color($colors,dark)
+            }
+        }
+        .item-block{
+            padding-left: 0;
+            line-height: 3rem;
+            span{
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .icon-wai{
+        text-align: center;
+        line-height: 1.2rem;
+        font-size: 2rem;
+    }
+}

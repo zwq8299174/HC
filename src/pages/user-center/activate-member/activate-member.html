@@ -1,0 +1,31 @@
+
+<ion-header>
+	<ion-navbar>
+		<ion-title>开通会员</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<section class="explain">
+		<p>１、智能还款：5%-10%资金实现信用卡账单全面还款轻松度过账单日！</p>
+		<p>２、即时到账：还款资金执行完还款计划后，即时回到信用卡内！</p>
+		<p>３、美化账单：银联商户以及第三方支付系统使您的账单完美！</p>
+		<p>４、安全放心：激活就送中国人保个人账户资金安全险一份，保障您的资金安全！</p>
+		<p>５、使用便捷：手机app一键搞定，隐私保密避免您的个人账户信息外泄！</p>
+		<p>６、还款利率：每万元还款手续费低至85元不限额度，不限还款额度。</p>
+		<section class="active-way">
+			<button ion-button small class="key" [color]="isKey?'primary':'light'" (tap)="wayChange('01')">激活码</button>
+			<button ion-button [color]="isKey?'light':'primary'" small class="online-pay" (tap)="wayChange('02')">在线支付</button>
+		</section>
+	</section>
+
+		<form *ngIf="isKey" #form="ngForm" novalidate (ngSubmit)="active()" class="custom-form">
+			<ion-item [ngClass]="{'error': (form.controls.activeKey?.touched||form.submitted)&&(form.controls.activeKey?.errors?.required||form.controls.activeKey?.errors?.minlength||form.controls.activeKey?.errors?.maxlength)}">
+				<ion-label fixed>激活码</ion-label>
+				<ion-input name="activeKey" required minlength="11" maxlength="20" type="text" value="" [(ngModel)]="activeKey" placeholder="请输入激活码"></ion-input>
+			</ion-item>
+			<button class="submit" type="submit" ion-button block [disabled] = "form.invalid">开通会员</button>
+		</form>
+
+		<ion-title class="hint" *ngIf="!isKey">在线缴费：<font color="#FF0000">{{memberPrice}}</font> 元</ion-title>
+
+</ion-content>

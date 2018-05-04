@@ -1,0 +1,123 @@
+<ion-header>
+	<ion-navbar>
+		<!-- <ion-buttons start>
+			<button ion-button icon-only (tap)="messageBox()">
+				  <ion-icon name="notifications"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title>我的</ion-title>
+		<ion-buttons end>
+			<button ion-button (tap)="setting()">
+				设置
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<header class="user-header clear" (tap)="goUserInfo()">
+		<div class="user-img fn-left">
+			<i class="iconfont">&#xe74d;</i>
+		</div>
+		<div class="user-info fn-left">
+			<p class="user-name" >{{user?.user_name}}<i class="iconfont" [hidden]="user?.is_active=='0'?true:false">&#xe601;</i><span class="is-autonym">{{user?.status | userAutonym}}</span></p>
+			<p class="user-mobile">{{user?.login_name | hiddenMobile}}</p>
+		</div>
+		<ion-icon class="fn-right" name="arrow-forward"></ion-icon>
+	</header>
+	<ion-buttons class="buttons-group" [hidden]="user?.is_active=='1'?true:false">
+		<button class="full-button" ion-button outline full  (tap)="goActive()">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe6a8;</i>
+				<i class="fn-left">激活会员</i>
+			</span>
+			<ion-icon name="arrow-forward"></ion-icon>
+	    </button>
+	</ion-buttons>
+	<ion-card class="overview block" (click)="goOverview($event)">
+		<ion-card-header class="clear">
+			<span class="title fn-left">账户总览</span>
+			<i (click)="showMoney($event)" class="iconfont fn-right" [innerHtml]="icon"></i>
+		</ion-card-header>
+		<ion-card-content>
+			<p>今日收益(元)</p>
+			<p class="amount">{{acctIncome?.day_income | accountIncomeStatus:showAcctIncome}}</p>
+		</ion-card-content>
+		<section class="card-footer">
+			<div class="footer-item">
+				<span>总收益</span>
+				<span class="amount">{{acctIncome?.total_income | accountIncomeStatus:showAcctIncome}}</span>
+			</div>
+			<div class="footer-item">
+				<span>月收益</span>
+				<span class="amount">{{acctIncome?.month_income | accountIncomeStatus:showAcctIncome}}</span>
+			</div>
+		</section>
+	</ion-card>
+	<ion-list class="buttons-list">
+		<!-- <ion-item>
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe7dc;</i>
+				<i class="fn-left">收款服务</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item> -->
+		<ion-item (tap)="goBalance()">
+			<span class="tag">
+				<i class="iconfont fn-left color-warning">&#xe60f;</i>
+				<i class="fn-left">余额</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goCards('02')">
+			<span class="tag">
+				<i class="iconfont fn-left color-success">&#xe61b;</i>
+				<i class="fn-left">信用卡</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goCards('01')">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe613;</i>
+				<i class="fn-left">储蓄卡</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goPaymentList()" hidden="hidden">
+			<span class="tag">
+				<i class="iconfont fn-left color-warning">&#xe615;</i>
+				<i class="fn-left">收款记录</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goRePaymentList()">
+			<span class="tag">
+				<i class="iconfont fn-left color-success">&#xe617;</i>
+				<i class="fn-left">还款记录</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+	</ion-list>
+	<ion-list class="buttons-list">
+		<ion-item (tap)="goOperationManual()">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe92f;</i>
+				<i class="fn-left">操作手册</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goCommonProblem()">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe606;</i>
+				<i class="fn-left">常见问题</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item (tap)="goChannelRate()">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe603;</i>
+				<i class="fn-left">通道费率</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+	</ion-list>
+</ion-content>

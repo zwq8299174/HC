@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>安全中心</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list class="buttons-list">
+		<ion-item (tap)="goPasswordSetting()">
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe619;</i>
+				<i class="fn-left">交易密码</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<!--<ion-item>
+			<span class="tag">
+				<i class="iconfont fn-left color-primary">&#xe602;</i>
+				<i class="fn-left">手势密码</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		 <ion-item hidden=hidden>
+			<ion-label>
+				<i class="iconfont fn-left color-primary">&#xe651;</i>
+				<i class="fn-left">指纹识别</i>
+			</ion-label>
+    		<ion-toggle [(ngModel)]="sausage"></ion-toggle>
+		</ion-item> -->
+	</ion-list>
+</ion-content>

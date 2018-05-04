@@ -1,0 +1,19 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>通道费率</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list class="multiseriate-list detail-list">
+		<ion-list-header>
+			<span>名称</span>
+			<span>费率</span>
+			<span>单笔限额</span>
+		</ion-list-header>
+		<ion-item *ngFor="let item of userChnl">
+			<span>{{item.merch_abb}}</span>
+			<span>0{{item.chnl_rate}}</span>
+			<span>{{item.single_up_amount}}</span>
+		</ion-item>
+	</ion-list>
+</ion-content>

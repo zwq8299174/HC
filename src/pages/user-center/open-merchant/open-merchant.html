@@ -1,0 +1,64 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>开通商户</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-title class="hint">请确保填写的信息真实准确</ion-title>
+	<form #form="ngForm" novalidate (ngSubmit)="open()" class="merchant-form custom-form">
+		<ion-item [ngClass]="{'error': (form.controls.merchantName?.touched||form.submitted)&&form.controls.merchantName?.errors?.required}">
+			<ion-label fixed>商户名称</ion-label>
+			<ion-input name="merchantName" required type="text" value="" [(ngModel)]="formModel.merch_name" placeholder="请输入商户名称"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.merchAbb?.touched||form.submitted)&&form.controls.merchAbb?.errors?.required}">
+			<ion-label fixed>商户简称</ion-label>
+			<ion-input name="merchAbb" required type="text" value="" [(ngModel)]="formModel.merch_abb" placeholder="请输入商户简称"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.merchAddress?.touched||form.submitted)&&form.controls.merchAddress?.errors?.required}">
+			<ion-label fixed>商户地址</ion-label>
+			<ion-input name="merchAddress" required type="text" value="" [(ngModel)]="formModel.merch_address" placeholder="请输入商户地址"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.telNo?.touched||form.submitted)&&form.controls.telNo?.errors?.required}">
+			<ion-label fixed>联系电话</ion-label>
+			<ion-input name="telNo" required pattern="^1[3|4|5|8][0-9]{9}$" type="tel" value="" [(ngModel)]="formModel.tel_no" placeholder="请输入联系电话"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.card?.touched||form.submitted)&&form.controls.card?.errors?.required||form.controls.card?.errors?.minlength}">
+			<ion-label fixed>银行卡号</ion-label>
+			<ion-input (blur)="getCardInfo()" [(ngModel)]="formModel.bank_account_no" name="card" required minlength="10" type="number" maxlength="20" value="" placeholder="请输入卡号"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.name?.touched||form.submitted)&&(form.controls.name?.errors?.required||form.controls.name?.errors?.maxlength)}">
+			<ion-label fixed>持卡人姓名</ion-label>
+			<ion-input [readonly]="user?.status=='1'" name="name" required maxlength="5" type="text" [(ngModel)]="formModel.bank_account_name" value="" placeholder="请输入持卡人姓名"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.id?.touched||form.submitted)&&(form.controls.id?.errors?.required||form.controls.id?.errors?.minlength)}">
+			<ion-label fixed>证件号</ion-label>
+			<ion-input name="id" [readonly]="user?.status=='1'" required minlength="18" type="text" value="" [(ngModel)]="formModel.identify_no" placeholder="请输入证件号"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.mobile?.touched||form.submitted)&&(form.controls.mobile?.errors?.required||form.controls.mobile?.errors?.minlength)}">
+			<ion-label fixed>银行卡预留手机号</ion-label>
+			<ion-input name="mobile" required minlength="11" pattern="^1[3|4|5|8][0-9]{9}$" type="tel" value="" [(ngModel)]="formModel.phone_no" placeholder="请输入预留手机号"></ion-input>
+		</ion-item>
+		<ion-item class="card-type" *ngIf="type==='02' || !type">
+			<ion-label fixed>卡片类型</ion-label>
+			<ion-label class="info"><i class="iconfont" [ngClass]="'icon-'+cardInfo?.bank_ename"></i><span>{{formModel.settbank_name}}{{formModel.card_type | cardType}}</span></ion-label>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.province?.touched||form.controls.city?.touched||form.submitted)&&(form.controls.province?.errors?.required||form.controls.city?.errors?.required)}">
+			<ion-label>开户行所在地区</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-select [(ngModel)]="formModel.bankp_province" (ngModelChange)="provinceChange()" required name="province" placeholder="请选择省份" okText="确定" cancelText="取消">
+			    <ion-option [value]="item.area_code" *ngFor="let item of provinceList">{{item.area_name}}</ion-option>
+		    </ion-select>
+			<ion-select class="city" [(ngModel)]="formModel.bank_city" (ngModelChange)="cityChange()" [disabled]="!cityList" required name="city" placeholder="请选择城市" okText="确定" cancelText="取消">
+			    <ion-option [value]="item.city_code" *ngFor="let item of cityList">{{item.city_name}}</ion-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.bankBranch?.touched||form.submitted)&&form.controls.bankBranch?.errors?.required}">
+			<ion-label>开户行支行</ion-label>
+			<ion-select [(ngModel)]="bankBranch" (ngModelChange)="bankBranchChange()" [disabled]="!bankBranchList||bankBranchList?.length==0" required name="bankBranch" placeholder="请选择支行" okText="确定" cancelText="取消">
+			    <ion-option [value]="item" *ngFor="let item of bankBranchList;let $item = item">{{item.bank_name}}</ion-option>
+		    </ion-select>
+		</ion-item>
+		<button class="submit" type="submit" ion-button block>提交</button>
+	</form>
+</ion-content>

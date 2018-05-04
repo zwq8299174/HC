@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>还款计划列表</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (tap)="add()">
+				<ion-icon name="add"></ion-icon>
+		    </button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card class="full repay-item" *ngFor="let item of repayList" (tap)="toTargetViem(item)">
+		<ion-card-header>
+			<i class="iconfont" [ngClass]="'icon-'+item.bank_ename"></i>
+			<span class="bank-name">{{item.bank_name}}</span>
+			<i class="tail-num">{{item.card_no | tailNum}}</i>
+		</ion-card-header>
+		<ion-card-content>
+			<div class="info-item">
+				<span>{{item.repayment_date}}</span>
+				<span class="tag">还款日期</span>
+			</div>
+			<div class="info-item">
+				<span>{{item.plan_amount}}</span>
+				<span class="tag">还款金额(元)</span>
+			</div>
+			<div class="info-item">
+				<span [ngClass]="item.status | repayStatus">{{item.status | repayStatus:'status'}}</span>
+				<span class="tag">计划状态</span>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<ion-title *ngIf="repayList&&repayList.length==0">无结果</ion-title>
+	<button *ngIf="repayList&&repayList.length==0" class="submit" ion-button block (tap)="add()">添加还款计划</button>
+</ion-content>

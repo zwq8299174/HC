@@ -1,0 +1,17 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>选择{{header}}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item (tap)="cardTap(card)" *ngFor="let card of cardList">
+		<ion-avatar item-start="item-start">
+			<i class="iconfont" [ngClass]="'icon-'+card.bank_ename"></i>
+		</ion-avatar>
+		<h2>{{card.bank_name}}</h2>
+		<p>{{card.card_no | tailNum}}&nbsp;<i>{{card.card_type | cardType}}</i>
+		</p>
+		<ion-icon name="md-checkmark" item-end="item-end" *ngIf="activeCard==card.card_no"></ion-icon>
+	</ion-item>
+	<button class="submit" ion-button block *ngIf="!load" (tap)="add()">{{buttonName}}</button>
+</ion-content>

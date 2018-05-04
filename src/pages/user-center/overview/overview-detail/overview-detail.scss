@@ -1,0 +1,14 @@
+page-overview-detail {
+	.header{
+		.select{justify-content: center;align-items:center;
+			max-width:none;
+			.select-text{text-align: right;
+				color: #fff;flex:auto;
+			}
+			.select-icon{flex:auto;
+				.select-icon-inner{color:#fff;}
+			}
+		}
+	}
+	.button.load-more{margin:1rem 0;}
+}

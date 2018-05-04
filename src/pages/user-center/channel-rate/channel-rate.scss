@@ -1,0 +1,13 @@
+page-channel-rate {
+	.multiseriate-list{
+		span:nth-child(1){
+			flex-basis: 25%;
+		}
+		span:nth-child(2){
+			flex-basis: 60%;
+		}
+		span:nth-child(3){
+			flex-basis: 25%;
+		}
+	}
+}

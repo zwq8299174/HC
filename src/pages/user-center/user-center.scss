@@ -1,0 +1,33 @@
+page-user-center {
+	.header .toolbar .toolbar-background{border:none;}
+	.scroll-content{}
+	.user-header{height:11rem;background-color:color($colors,primary);width: 100%;
+		padding:1.9rem 2.5rem;
+		.user-img{width:7.2rem;height: 7.2rem;
+			.iconfont{line-height:7.2rem;font-size:7rem;color:#fff;border-radius:50%;box-shadow:0 0 20px rgba(133,182,255,1);}
+			img{height:7.2rem;width:7.2rem;border-radius:50%;box-shadow:0 0 20px rgba(133,182,255,1);}
+		}
+		.user-info{height: 7.2rem;color:#fff;padding-left:1.2rem;
+			.user-name{line-height:3.8rem;height:3.8rem;font-size:1.8rem;display:flex;align-items: center;
+				.iconfont{margin-left:1rem; display: inline-block;width:2rem;height:2rem;font-size:1.6rem;background-color:color($colors,warning);
+					border-radius:50%;line-height:2.2rem;text-align: center;}
+				.is-autonym{font-size:1.2rem;display: inline-block;padding:0 1rem;height:2rem;line-height:2rem;border-radius:1rem;background-color: color($colors,light);color: color($colors,primary);margin-left:1rem;}
+			}
+			.user-mobile{line-height:3rem;height:3rem;font-size:2.4rem;}
+		}
+		&>.icon{height: 7.2rem;line-height:7.2rem;color:#fff;font-size:2.8rem;}
+	}
+	.overview.card{
+		.card-header{padding:0 2.5rem;border:none;}
+		.card-content{color:#999;text-align: center;padding-top:0;border-bottom: 1px solid $border-color;
+			p{line-height:2.6rem;}
+			.amount{color:color($colors,warning);font-size:2.8rem;line-height:4rem;}
+		}
+		.card-footer{height:5.6rem;display: flex;padding:0 2.5rem;
+			.footer-item{flex-basis: 50%;padding-top:0.8rem;
+				span{width:100%;text-align:center;display: inline-block;color:color($colors,gray);font-size:1.4rem;line-height:1.8rem;}
+				.amount{font-size:1.6rem;color:color($colors,dark);line-height:2.2rem;}
+			}
+		}
+	}
+}

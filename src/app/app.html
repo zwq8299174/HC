@@ -1,0 +1,10 @@
+<ion-nav [root]="rootPage"></ion-nav>
+<section class="loading-mask" *ngIf="current&&current!=100"></section>
+<div class="loading-container" *ngIf="current&&current!=100">
+	<div class="loading-wrap">
+		<p>资源更新中{{current}}%</p>
+		<div class="progress-container">
+		  <div class="progress" [style.width]="current + '%'"></div>
+		</div>
+	</div>
+</div>

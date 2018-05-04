@@ -1,0 +1,17 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>收款记录</ion-title>
+		<ion-buttons end>
+			<i class="iconfont">&#xe618;</i>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="detail-item" *ngFor="let card of paymentList">
+		<ion-avatar item-start="item-start">
+			<i class="iconfont" [ngClass]="'icon-'+card.bank_ename"></i>
+		</ion-avatar>
+		<h2><span>{{card.bank_name}}</span><span class="date">2017-10-10</span></h2>
+		<p><span>{{card.card_no | tailNum}}&nbsp;<i>{{card.card_type | cardType}}</i></span><span class="amount">收款:<i>{{card.amount | RMB}}</i></span></p>
+	</ion-item>
+</ion-content>

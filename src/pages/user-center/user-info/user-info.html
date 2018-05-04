@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>基本资料</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list class="buttons-list">
+		<ion-item hidden="hidden">
+			<span class="tag">
+				<i class="fn-left">头像</i>
+			</span>
+			<ion-icon name="arrow-forward" item-end></ion-icon>
+		</ion-item>
+		<ion-item>
+			<span class="tag">
+				<i class="fn-left">姓名</i>
+			</span>
+			<i item-end>{{user?.user_name}}</i>
+		</ion-item>
+		<ion-item>
+			<span class="tag">
+				<i class="fn-left">电话号码</i>
+			</span>
+			<i item-end>{{user?.login_name | hiddenMobile}}</i>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,418 @@
+@import "ionic.globals";
+$colors: (
+	primary: #488aff,
+	secondary: #02cdf4,
+	warning: #ffa200,
+	danger: #f53d3d,
+	success: #6ed91f,
+	light: #dff5ff,
+	dark: #444,
+	link: #488aff,
+	gray: #999,
+	icon: #666
+);
+$border-color: #ddd;
+@font-face {
+	font-family: 'iconfont';  /* project id 508850 */
+  src: url($font-path+'iconfont.eot');
+  src: url($font-path+'iconfont.eot?#iefix') format('embedded-opentype'),
+  url($font-path+'iconfont.woff') format('woff'),
+  url($font-path+'iconfont.ttf') format('truetype'),
+  url($font-path+'iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+	font-family: 'iconfont' !important;
+	font-size: 2rem;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	speak: none;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-stroke-width: 0.2px;
+}
+.icon-cmb:before {content: '\e655';color: #C72939;}//招商银行
+.icon-boc:before {content: '\e658';color: #9A001B;}//中国银行
+.icon-ccb:before {content: '\e656';color: #162F70;}//中国建设银行
+.icon-abc:before {content: '\e6a2';	color: #008D78;}//中国农业银行
+.icon-icbc:before {content: '\e6a1';color: #A7211D;}//中国工商银行
+.icon-cmbc:before {content: '\e629';color: #0F1F78;}//中国民生银行
+.icon-cib:before {content: '\e634';color: #292F64;}//兴业银行
+.icon-bcm:before {content: '\e632';color: #01316D;}//交通银行
+.icon-gdb:before {content: '\e608';color: #E91829;}//广发银行
+.icon-ceb:before {	content: '\e62a';color: #60177B;}//光大银行
+.icon-hxb:before {content: '\e63c';color: #D5201A;}//华夏银行
+.icon-hxb:before {content: '\e63c';color: #D5201A;}//华夏银行
+.icon-hsbc:before{content: '\e740';color: #D81E06;}//汇丰银行
+.icon-pab:before{content: '\e92e';color: #EA5505;}//平安银行
+
+.card{
+	&.icon-cmb{//招商银行
+		background-color: #C72939;
+		&:before {content: '\e655';}
+	}
+	&.icon-boc{//中国银行
+		background-color: #9A001B;
+		&:before {content: '\e658';}
+	}
+	&.icon-ccb{//中国建设银行
+		background-color: #162F70;
+		&:before {content: '\e656';}
+	}
+	&.icon-abc{//中国农业银行
+		background-color: #008D78;
+		&:before {content: '\e6a2';}
+	}
+	&.icon-icbc{//中国工商银行
+		background-color: #A7211D;
+		&:before {content: '\e6a1';}
+	}
+	&.icon-cmbc{//中国民生银行
+		background-color: #0F1F78;
+		&:before {content: '\e629';}
+	}
+	&.icon-cib{//兴业银行
+		background-color: #292F64;
+		&:before {content: '\e634';}
+	}
+	&.icon-bcm{//交通银行
+		background-color: #01316D;
+		&:before {content: '\e632';}
+	}
+	&.icon-gdb{//广发银行
+		background-color: #E91829;
+		&:before {content: '\e608';}
+	}
+	&.icon-ceb{//光大银行
+		background-color: #60177B;
+		&:before {content: '\e62a';}
+	}
+	&.icon-hxb{//华夏银行
+		background-color: #D5201A;
+		&:before {content: '\e63c';}
+	}
+	&.icon-hsbc{//汇丰银行
+		background-color: #D81E06;
+		&:before {content: '\e740';}
+	}
+	&.icon-pab{//平安银行
+		background-color: #EA5505;
+		&:before {content: '\e92e';}
+	}
+}
+.transition-02 {transition: all 0.2s ease;
+}
+.transition-05 {
+	transition: all 0.5s ease;
+}
+.color-primary {
+	color: color($colors, primary);
+}
+.color-secondary {
+	color: color($colors,secondary);
+}
+.color-warning {
+	color: color($colors,warning);
+}
+.color-danger {
+	color: color($colors,danger);
+}
+.color-success {
+	color: color($colors,success);
+}
+.clear:after,
+.clear:before {
+	display: table;
+	content: ' ';
+}
+.clear:after {
+	clear: both;
+}
+.fn-left {
+	float: left;
+}
+.fn-right {
+	float: right;
+}
+.fn-hide {
+	display: none;
+}
+.fn-text-overflow {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.icon-loading {
+	display: inline-block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	left: 50%;
+	top: 50%;
+	margin-top: -50px;
+	margin-left: -50px;
+	text-align: center;
+	z-index: 9;
+	transform-origin: 50% 50% 0;
+	animation: load 1.5s linear infinite;
+}
+/*html{font-size: 10px;}*/
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+li,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+li,
+ol,
+ul {
+	list-style: none;
+}
+em,
+i {
+	font-style: normal;
+}
+@-webkit-keyframes load {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(270deg);
+		-webkit-transform: rotate(270deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes load {
+	0% {
+		transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-moz-keyframes load {
+	0% {
+		-moz-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+	}
+	50% {
+		-moz-transform: rotate(270deg);
+		-moz-transform: rotate(270deg);
+	}
+	100% {
+		-moz-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+	}
+}
+
+ion-toast.success .toast-wrapper{ background-color:rgba(110,217,31,0.8);}
+ion-toast.danger .toast-wrapper{background-color:rgba(245,61,61,0.8);}
+
+
+
+.button.button-ios-fff,.button.button-md-fff{color:color($colors,primary);background-color: #fff;}
+//FormsModule
+.custom-form {
+	border-top: 1px solid $border-color;
+	.item {
+		padding: 0 2.5rem;
+		@extend .transition-02;
+		&.item-ios{border-bottom: 1px solid $border-color;
+			&.item-block {
+				.item-inner {
+					padding: 0;
+					border: none;
+					border-bottom-color:$border-color;
+				}
+			}
+		}
+		&.item-md{
+			&.item-block {
+				.item-inner {
+					padding: 0;
+					border-bottom-color:$border-color;
+				}
+			}
+		}
+		&.item-block {
+			.item-inner {
+				.label {
+					@extend .transition-02;
+					width: auto;
+					flex-basis: auto;
+				}
+				.item-button{margin:0 0 0 1rem;height:3rem;line-height:3rem;}
+				.input {
+					text-align: right;
+				}
+				input {
+					margin: 0;
+					text-align: right;
+					width: 100%;
+				}
+				.zhi {
+					width: 3rem;
+					flex-basis: 3rem;
+					order: 2;
+					margin: 0;
+					color: color($colors,gray);
+				}
+			}
+		}
+		&.error {
+			border-color: color($colors,danger);
+			.label {
+				color: color($colors,danger);
+			}
+		}
+		.datetime {
+			padding-right: 0;
+		}
+	}
+	.hint {
+		.toolbar-title {
+			color: color($colors,warning);
+		}
+	}
+	.button.submit {
+		margin: 2rem 0;
+	}
+}
+//select-card-item
+.item.select-card {
+	margin-top: 1rem;
+	border-bottom: 1px solid $border-color;
+	border-top: 1px solid $border-color;
+	.iconfont {
+		font-size: 40px;
+		line-height: 40px;
+	}
+	p {
+		color: #999;
+	}
+	&.item-block {
+		.label {
+			margin: 16px 8px 16px 0;
+		}
+		.item-inner {
+			border: none;
+		}
+	}
+	&.active {
+		.icon {
+			color: color($colors,primary);
+		}
+	}
+}
+//full-button
+ion-buttons.buttons-group{
+	border-top: 1px solid $border-color;margin:0 0 1rem 0;
+}
+.button.full-button {
+	padding:0 2.5rem;
+	margin: 0;
+	height: 4.5rem;
+	.button-inner {
+		justify-content: space-between;
+	}
+	.tag {
+		font-size: 1.6rem;
+		clear: both;
+		line-height: 30px;
+		font-weight: normal;
+		.iconfont {
+			font-size: 28px;
+			margin-right: 10px;
+		}
+	}
+	.icon {
+		color: color($colors,icon);font-size:2.8rem;
+	}
+	&.button-outline{background-color: #fff;color:color($colors,dark);border:0;border-bottom:1px solid $border-color;}
+}
+.buttons-list.list{margin-bottom:1rem;
+	.item.item-block{padding:0 0 0 2.5rem;
+		.item-inner{padding:0 2.5rem 0 0;margin:0;
+			.icon[item-end]{margin-right:0;}
+			.tag,.label {color: color($colors,dark);
+				font-size: 1.6rem;
+				clear: both;
+				line-height: 3rem;
+				font-weight: normal;
+				.iconfont,.icon {
+					font-size: 2.8rem;;
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+
+}
+
+//block-card
+.block.card{box-shadow:none;margin:1rem 0;width: 100%;border-radius:0;border-top:1px solid $border-color;border-bottom:1px solid $border-color;
+	.card-header{padding:0;line-height:4.4rem;height:4.4rem;border-bottom:1px solid $border-color;padding:0 1.2rem;align-items:center;
+		.iconfont{font-size:2.4rem;line-height:4.4rem;
+			&.fn-left{margin-right:1rem;}
+		}
+		.title{font-size:1.6rem;margin-right:1.5rem;}
+		.tag{font-size:1.2rem;color:#999;}
+		.icon{line-height:4.4rem;color:#999;font-size:2.8rem;}
+	}
+	.card-content{padding:1.2rem;}
+}
+
+//detail-item
+.item.detail-item{margin-top: 1rem;border-bottom: 1px solid $border-color;border-top: 1px solid $border-color;
+	.iconfont{font-size:4rem;line-height:4rem;}
+	h2{display: flex;justify-content: space-between;}
+	p{color: #999;display: flex;justify-content: space-between;}
+	&.item-block{
+		.label{margin:1.2rem 0.8rem 1.2rem 0}
+		.icon{color:color($colors,primary)}
+		.item-inner{border:none;}
+		.amount{color:color($colors,primary);}
+		.date{color: #999;font-size: 1.4rem;}
+	}
+	&.single-line{border-left:0.4rem solid color($colors,secondary);margin-top:0;border-top:none;
+		.label{margin:1.2rem 0.8rem 1.2rem 0; display: flex;justify-content: space-between;align-items:center;
+			.type{font-size:1.8rem;}
+			.info{text-align: right;
+				h3{text-align: right;}
+			}
+		}
+	}
+}
+.detail-list{
+	.list-header{padding:0;margin:0;height:4.4rem;line-height:4.4rem;border-bottom: 1px solid #a3dcf8;background-color: color($colors,light);color: color($colors,primary);font-size:1.6rem;
+	}
+	.item.item-block{padding:0;
+		.item-inner{padding:0;font-size:1.4rem;}
+	}
+	.label{display: flex;justify-content:space-between;margin:0;}
+	span{text-align: center;flex: 1}
+}
+
+.loading-mask{position: absolute;left:0;right:0;top:0;bottom:0;background-color:#000;opacity:0.3;z-index: 99;}
+.loading-container{position: absolute;left:0;right:0;top:0;bottom:0;background-color:transparent;display: flex;justify-content: center;align-items:center;z-index: 100;
+	.loading-wrap{width:70%;padding:2rem;background-color: #fff;border-radius:8px;font-size:1.6rem;text-align: center;}
+}
+
+.webview{position:absolute;top:0;left: 0;right: 0;bottom:0;margin:0;padding: 0;border: none;width: 100%;height:100%;}

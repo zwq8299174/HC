@@ -1,0 +1,32 @@
+page-login {
+	.scroll-content{
+		background-color:#fff;
+		text-align: center;
+		overflow: hidden;
+	}
+	.logo{
+		margin: 8.7vh auto;
+		width: 33.5vw;
+	}
+	.login-wrapper{
+		padding: 0 5rem;
+		.item{background-color:transparent;padding:0;
+			.item-inner{padding:0;border-color:color($colors,dark);
+				.get-code{width:9rem;height:29px;font-size:1.4rem;
+					&.disabled{cursor: default;opacity: .4;pointer-events: none;}
+				}
+			}
+		}
+		input{font-size:1.6rem;
+			&::-webkit-input-placeholder{color: color($colors,icon);opacity: 1;}
+		}
+		.text-input-clear-icon{right: 0;opacity: 0.7;}
+	}
+	.login{margin-top:4rem;}
+	.agreement{text-align: center;font-size:1.2rem;
+		a{text-decoration: underline;margin-right:1rem;line-height:4rem;}
+	}
+	.error{line-height:3.6rem;min-height:3.6rem;
+		.label{margin:0;}
+	}
+}

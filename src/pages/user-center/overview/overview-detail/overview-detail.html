@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			<ion-select interface="popover" placeholder="收益记录" [(ngModel)]="classify" (ngModelChange)="getAcctIncomeList()">
+				<ion-option *ngFor="let vo of classifyAll" value="{{vo.key}}">{{vo.value}}</ion-option>
+			</ion-select>
+		</ion-title>
+		<ion-buttons end="end">
+			<i class="iconfont">&#xe618;</i>
+			<ion-datetime displayFormat="YYYY-MM" [(ngModel)]="myDate" (ngModelChange)="getAcctIncomeList()"></ion-datetime>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="detail-item single-line" *ngFor="let item of dataList">
+		<span class="type">{{item.profit_type | overview}}</span>
+		<div class="info">
+			<h2><span class="date">{{item.fr_date}}</span></h2>
+			<h3><span class="amount"><i>+{{item.after_tax_fr}}</i></span></h3>
+		</div>
+	</ion-item>
+	<button class="load-more" ion-button (tap)="nextPage()" *ngIf="showCard" full>加载更多...</button>
+</ion-content>

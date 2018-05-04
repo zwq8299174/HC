@@ -1,0 +1,19 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{cardType | cardType}}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card [ngClass]="'icon-'+item.bank_ename" *ngFor="let item of cardList" >
+		<ion-card-content>
+			<i class="iconfont card-icon" [ngClass]="'icon-'+item.bank_ename"></i>
+			<div class="card-info">
+				<h3>{{item.bank_name}}</h3>
+				<p class="type">{{cardType | cardType}}</p>
+				<p class="em"><em>****</em><em>****</em><em>****</em></p>
+			</div>
+			<span class="tail-num">{{item.card_no | tailNum:'number'}}</span>
+		</ion-card-content>
+	</ion-card>
+	<button class="submit" ion-button block *ngIf="!load" (tap)="add()">{{buttonName}}</button>
+</ion-content>

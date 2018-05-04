@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>账户{{title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="select-card" (tap)="select()" *ngIf="showCard && card">
+		<ion-avatar item-start="item-start">
+			<i class="iconfont" [ngClass]="'icon-'+card?.bank_ename"></i>
+		</ion-avatar>
+		<h2>{{card?.bank_name}}</h2>
+		<p>{{card?.card_no | tailNum}}&nbsp;<i>{{card?.card_type | cardType}}</i>
+		</p>
+		<ion-icon name="arrow-forward" item-end></ion-icon>
+	</ion-item>
+	<ion-item class="select-card" *ngIf="showCard && !card" (tap)="select()">
+		<h1>请选择{{cardTypeName}}</h1>
+		<ion-icon name="arrow-forward" item-end></ion-icon>
+	</ion-item>
+	<section class="amount-wrapper">
+		<ion-title>{{title}}金额</ion-title>
+		<ion-input name="amount" required minlength="9" type="number" value="" [(ngModel)]="amount" placeholder="¥" clearInput ></ion-input>
+	</section>
+	<button class="login submit" ion-button block (tap)="payment()" [disabled]="amount==undefined||amount<100||!card">确认</button>
+</ion-content>

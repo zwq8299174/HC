@@ -1,0 +1,18 @@
+page-overview {
+	.card.block{
+		.card-header{
+			 .tag{font-size:1.6rem;color:color($colors,dark);}
+			 .amount{margin-right:1rem;color:color($colors,warning);}
+		}
+		.card-content{padding:0 2rem;
+			.line{display: flex;border-bottom: 1px solid $border-color;padding:2rem 0;
+				.earning{flex-basis: 33.33%;border-right: 1px solid $border-color;text-align: center;
+					&:nth-child(3){border-right:0;}
+					p{color:color($colors,dark)}
+					.title{color:#999;}
+				}
+				&:last-child{border-bottom:0;}
+			}
+		}
+	}
+}

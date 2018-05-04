@@ -1,0 +1,17 @@
+page-index {
+	.banner{height:57.33vw;}
+	.menu-container{display: flex;flex-wrap: wrap;background-color: #fff;border-bottom: 1px solid $border-color;padding-bottom:1rem;
+		.menu-item{margin-top: 1rem;
+			flex-basis: 25%;display: flex;flex-wrap: wrap;text-align: center;
+			i{
+				flex-basis: 100%;font-size:3.6rem;line-height:4.4rem;
+			}
+			span{
+				flex-basis: 100%;font-size:1.4rem;line-height:2.6rem;
+			}
+		}
+	}
+	.block-list{
+
+	}
+}

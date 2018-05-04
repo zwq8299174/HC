@@ -1,0 +1,20 @@
+page-balance-detail {
+	.header{
+		.select{justify-content: center;align-items:center;
+			max-width:none;
+			.select-text{text-align: right;
+				color: #fff;flex:auto;
+			}
+			.select-icon{flex:auto;
+				.select-icon-inner{color:#fff;}
+			}
+		}
+
+	}
+	.detail-item{
+		&.item-block{
+			.amount{font-size:1.6rem;}
+		}
+	}
+	.button.load-more{margin:1rem 0;}
+}

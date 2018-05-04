@@ -1,0 +1,13 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>收款</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<section class="amount-wrapper">
+		<ion-title>收款金额</ion-title>
+		<ion-input name="amount" required minlength="9" type="number" value="" [(ngModel)]="amount" placeholder="¥" clearInput ></ion-input>
+	</section>
+	<ion-title class="hint" >金额需大于等于100元</ion-title>
+	<button class="login submit" ion-button block (tap)="payment()" [disabled]="amount==undefined||amount<100">收款</button>
+</ion-content>

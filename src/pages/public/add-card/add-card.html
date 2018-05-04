@@ -1,0 +1,68 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>添加{{header}}</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<!-- <div class="tab-wrapper" *ngIf="!type">
+		<div class="tab-item" [ngClass]="{'active': type==='02' || !type}">
+			<span (tap)="typeChange(0)">信用卡</span>
+		</div>
+		<div class="tab-item" [ngClass]="{'active': type==='01'}">
+			<span (tap)="typeChange(1)">储蓄卡</span>
+		</div>
+	</div> -->
+	<ion-title class="hint">请确保填写的信息真实准确</ion-title>
+	<form #form="ngForm" novalidate (ngSubmit)="add()" class="add-form custom-form">
+		<ion-item [ngClass]="{'error': (form.controls.card?.touched||form.submitted)&&form.controls.card?.errors?.required||form.controls.card?.errors?.minlength}">
+			<ion-label fixed>卡号</ion-label>
+			<ion-input (blur)="getCardInfo()" [(ngModel)]="addModel.card_no" name="card" required maxlength="20" type="number" minlength="10" placeholder="请输入卡号"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.name?.touched||form.submitted)&&(form.controls.name?.errors?.required||form.controls.name?.errors?.maxlength)}">
+			<ion-label fixed>持卡人姓名</ion-label>
+			<ion-input [readonly]="user?.status=='1'" name="name" required maxlength="5" type="text" [(ngModel)]="addModel.user_name" value="" placeholder="请输入持卡人姓名"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.id?.touched||form.submitted)&&(form.controls.id?.errors?.required||form.controls.id?.errors?.minlength)}">
+			<ion-label fixed>证件号</ion-label>
+			<ion-input name="id" [readonly]="user?.status=='1'" required minlength="18" type="text" value="" [(ngModel)]="addModel.identify_no" placeholder="请输入证件号"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.limit?.touched||form.submitted)&&form.controls.limit?.errors?.required}">
+			<ion-label fixed>还款额度</ion-label>
+			<ion-input name="limit" [(ngModel)]="addModel.credit_limit" required type="number" value="" placeholder="请输入还款额度"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.cvv?.touched||form.submitted)&&(form.controls.cvv?.errors?.required||form.controls.cvv?.errors?.minlength)}">
+			<ion-label fixed>CVV2</ion-label>
+			<ion-input name="cvv" required type="number" [(ngModel)]="addModel.cvv2" minlength="3" maxlength="4" value="" placeholder="请输入CVV2码"></ion-input>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.expdate?.touched||form.submitted)&&(form.controls.expdate?.errors?.required||form.controls.cvv?.errors?.minlength)}">
+			<ion-label>有效期</ion-label>
+			<ion-datetime class="expdate" cancelText="取消" doneText="确认" name="expdate" required placeholder="请选择有效期" displayFormat="YYYY-MM" pickerFormat="YYYY-MM" [(ngModel)]="addModel.expired_date" [min]="minDate" [max]="maxDate" ></ion-datetime>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.billDate?.touched||form.submitted)&&form.controls.billDate?.errors?.required}">
+			<ion-label>账单日</ion-label>
+			<ion-select [(ngModel)]="addModel.bill_day" required name="billDate" placeholder="请选择账单日" okText="确定" cancelText="取消">
+			    <ion-option [value]="day.val" *ngFor="let day of monthDay">{{day.day}}</ion-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item *ngIf="type==='02' || !type" [ngClass]="{'error': (form.controls.refundDate?.touched||form.submitted)&&form.controls.refundDate?.errors?.required}">
+			<ion-label>还款日</ion-label>
+			<ion-select [(ngModel)]="addModel.repayment_date" required name="refundDate" placeholder="请选择账单日" okText="确定" cancelText="取消">
+			    <ion-option [value]="day.val" *ngFor="let day of monthDay">{{day.day}}</ion-option>
+		    </ion-select>
+		</ion-item>
+		<ion-item class="card-type">
+			<ion-label fixed>卡片类型</ion-label>
+			<ion-label class="info"><i class="iconfont" [ngClass]="'icon-'+cardInfo?.bank_ename"></i><span>{{addModel.bank_name}}{{addModel.card_type | cardType}}</span></ion-label>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.mobile?.touched||form.submitted)&&(form.controls.mobile?.errors?.required||form.controls.mobile?.errors?.minlength)}">
+			<ion-label fixed>银行预留手机号</ion-label>
+			<ion-input name="mobile" required minlength="11" maxlength="11" pattern="^1[3|4|5|8][0-9]{9}$" type="tel" value="" [(ngModel)]="addModel.bank_phonenumber" placeholder="请输入手机号"></ion-input>
+		</ion-item>
+		<ion-item [ngClass]="{'error': (form.controls.code?.touched||form.submitted)&&form.controls.code?.errors?.required}">
+			<ion-label fixed>验证码</ion-label>
+			<ion-input name="code" required minlength="4" type="number" [(ngModel)]="addModel.bank_vaildcode" placeholder="请输入验证码"></ion-input>
+			<a class="get-code" ion-button color="light" item-end (click)="getCode()">{{codeTxt}}</a>
+		</ion-item>
+		<button class="submit" type="submit" ion-button block [disabled] = "form.invalid || load || !addModel.sms_trade_id">确定</button>
+	</form>
+</ion-content>
